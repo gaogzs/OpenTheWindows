@@ -8,12 +8,23 @@
 			<success>Normal</success>
 			<operations>
 
-				<li Class="PatchOperationAdd">
-					<xpath>Defs/RecipeDef[@ParentName="RB_Make_GlassBase"]  </xpath>
-					<value>
-            <researchPrerequisite>Glassworks</researchPrerequisite>
-					</value>				
-				</li>
+        <li Class="JPTools.PatchOperationFindModById">
+          <mods>
+            <li>nanoce.glasslights</li>
+          </mods>
+          <match Class="PatchOperationAdd">
+            <xpath>Defs/RecipeDef[@ParentName="RB_Make_GlassBase"]</xpath>
+            <value>
+              <researchPrerequisite>GlassworksResearch</researchPrerequisite>
+            </value>
+          </match>
+          <nomatch Class="PatchOperationAdd">
+            <xpath>Defs/RecipeDef[@ParentName="RB_Make_GlassBase"]</xpath>
+            <value>
+              <researchPrerequisite>Glassworks</researchPrerequisite>
+            </value>
+          </nomatch>
+        </li>
        
 				<li Class="PatchOperationReplace">
 					<xpath>Defs/ThingDef[defName = "OpenWindow"]/costList</xpath>
